@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row columnHolder">
+          <div class="col-6 column1">
+            <img class="left-undraw-professionImage" src="./undraw_career_progress_ivdb.svg">
+          </div>
+          <div class="col column2">
+            <p>First and last name</p>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                <input type="text" aria-label="First name" class="form-control" id="firstName">
+                <input type="text" aria-label="Last name" class="form-control" id="lastName">
+              </div>
+            <p>E-mail</p>
+            <div class="input-group mb-3">
+                
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope-open-text"></i></span>
+                <input type="text" id="email" class="form-control" placeholder="Type your email address" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <p>Phone No</p>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">+91</span>
+                <input type="text" class="form-control" placeholder="Type your phone number" id="phone" aria-label="Phone Number" aria-Recipient's username" aria-describedby="basic-addon2">
+                
+              </div>
+              <p>Graduation Year</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></i></span>
+                <input type="month" aria-label="First name" class="form-control">
+              </div>
+              <p>Qualification</p>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01"><i class="fa-solid fa-user-graduate"></i></label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">B.E</option>
+                  <option value="2">B.Sc</option>
+                  <option value="3">B.Tech</option>
+                </select>
+                <select class="form-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <!-- <option value="1">B.E</option>
+                    <option value="2">B.Sc</option>
+                    <option value="3">B.Tech</option> -->
+                  </select>
+              </div>
+              <p>Gender</p>
+            <div class="input-group mb-3 check_box_gender">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Male
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Female
+                    </label>
+                  </div>
+              </div>
+              <button class="btn btn-primary" onclick="handleValidation()"> Submit</button>
+            <!-- <p class="h3 right-title">Career Re-Shape Form</p> -->
+        </div>
+        </div>
+        
+      </div>
+<style rel="stylesheet">
+    .column1 {
+        display: flex;
+        align-items: center;
+        background-color: rgb(224 219 255);;
+    }
+    .column2 {
+        background-color: white;
+        /* display: flex;
+        flex-direction: row; */
+    }
+    .left-undraw-professionImage{
+        height: 50%;
+    }
+    .columnHolder{
+        margin: 5%;
+        border-radius: 50px;
+        background: linear-gradient(145deg, #f0f0f0, #cacaca);
+        box-shadow:  25px 25px 51px #afafaf,
+             -25px -25px 51px #ffffff;
+    }
+    .right-title{
+        color: #797b7c;
+    }
+    .form-check{
+        margin : 2%;
+    }
+</style>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+<script>
+
+
+        function getValue(id){
+            return document.getElementById(id).value
+        }
+
+        function getElement(id){
+          return document.getElementById(id)
+        }
+
+        function makeErrorSignOrRightSign (type, elementId){
+            if(type == "right"){
+              getElement(elementId).style = `color: #212529;
+                                              background-color: #fff;
+                                              border-color: #adff91;
+                                              outline: 0;
+                                              box-shadow: 0 0 0 0.25rem rgb(13 253 137 / 42%);`
+            }else if(type == "error"){
+              getElement(elementId).style = `border-color: rgb(231 19 79);
+                                            outline: 0px;
+                                            box-shadow: rgb(253 13 13 / 42%) 0px 0px 0px 0.25rem;`
+            }
+        }
+
+
+
+        function handleValidation(){
+            var name = getValue("firstName") + " " + getValue("lastName");
+            var emailId = getValue("email");
+            var phNo = getValue("phone");
+
+
+            let errorCount = 0;
+
+          if(name.length > 0 && isNaN(name)){
+            makeErrorSignOrRightSign("right" , "firstName");       
+            makeErrorSignOrRightSign("right" , "lastName");   
+          }else{
+            errorCount++;
+            makeErrorSignOrRightSign("error" , "firstName");       
+            makeErrorSignOrRightSign("error" , "lastName");
+          }
+
+          if(emailId.length > 0 && emailId.includes("@") && emailId.includes(".") ){
+            makeErrorSignOrRightSign("right" , "email");       
+          }else{
+            makeErrorSignOrRightSign("error" , "email");       
+            errorCount++;
+          }
+
+
+          if(phNo.length > 0 && !isNaN(phNo)){
+
+          }else{
+            errorCount++;
+          }
+
+
+
+        }
+
+
+
+</script>
+
+
+
+</body>
+</html>
